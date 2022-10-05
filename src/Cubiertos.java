@@ -14,6 +14,7 @@ class Cubiertos {
         this.numCubiertos = numCubiertos;
     }
 
+    @Override
     public String toString() {
         return numCubiertos + " cubiertos ";
     }

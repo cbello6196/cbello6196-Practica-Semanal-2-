@@ -1,29 +1,29 @@
 
 
 public class Pila {
-   private Nodo cima;
+   private Plato tope;
    
    public Pila(){
-       cima=null;
+       tope=null;
    }
    
    public boolean estaVacia(){
-       return cima==null;
+       return tope==null;
    }
    
-   public void apilar(Nodo n){
+   public void apilar(Plato n){
        if(estaVacia()){
-           cima=n;
+           tope=n;
        }else{
-           n.setSiguiente(cima);
-           cima=n;
+           n.setSiguiente(tope);
+           tope=n;
        }
    }
    
-   public Nodo desapilar(){
+   public Plato desapilar(){
        if(!estaVacia()){
-           Nodo aux=cima;
-           cima=cima.getSiguiente();
+           Plato aux=tope;
+           tope=tope.getSiguiente();
            aux.setSiguiente(null);
            return aux;
        }else{
@@ -31,12 +31,12 @@ public class Pila {
        }
    }
    
-   public Nodo siguiente(){
-       return cima;
+   public Plato peek(){
+       return tope;
    }
    
    public void imprimir(){
-       Nodo aux=cima;
+       Plato aux=tope;
        while(aux!=null){
            System.out.println(aux);
            aux=aux.getSiguiente();
