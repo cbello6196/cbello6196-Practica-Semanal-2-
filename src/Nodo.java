@@ -1,5 +1,4 @@
 
-
 public class Nodo {
    private String info;
    private int cubiertos;

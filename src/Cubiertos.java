@@ -16,6 +16,6 @@ class Cubiertos {
 
     @Override
     public String toString() {
-        return numCubiertos + " cubiertos ";
+        return numCubiertos + " cubierto ";
     }
 }

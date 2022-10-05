@@ -1,29 +1,28 @@
 
-
 public class Pila {
-   private Plato cima;
+   private Nodo tope;
    
    public Pila(){
-       cima=null;
+       tope=null;
    }
    
    public boolean estaVacia(){
-       return cima==null;
+       return tope==null;
    }
    
-   public void push(Plato n){
+   public void push(Nodo n){
        if(estaVacia()){
-           cima=n;
+           tope=n;
        }else{
-           n.setSiguiente(cima);
-           cima=n;
+           n.setSiguiente(tope);
+           tope=n;
        }
    }
    
-   public Plato pool(){
+   public Nodo pol(){
        if(!estaVacia()){
-           Plato aux=cima;
-           cima=cima.getSiguiente();
+           Nodo aux=tope;
+           tope=tope.getSiguiente();
            aux.setSiguiente(null);
            return aux;
        }else{
@@ -31,15 +30,26 @@ public class Pila {
        }
    }
    
-   public Plato siguiente(){
-       return cima;
+   public Nodo siguiente(){
+       return tope;
    }
    
    public void imprimir(){
-       Plato aux=cima;
+       Nodo aux=tope;
        while(aux!=null){
            System.out.println(aux);
            aux=aux.getSiguiente();
+       }
+   }
+   
+   public void sacar(){
+       Nodo aux=tope;
+       if(aux!=null && aux.getCubiertos()!=0){
+           int cubiertos=aux.getCubiertos();
+           aux.setCubiertos(0);
+           if(tope.getSiguiente()!=null){
+               tope.getSiguiente().setCubiertos(cubiertos+tope.getSiguiente().getCubiertos());
+           }
        }
    }
 }
